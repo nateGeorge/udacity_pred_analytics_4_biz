@@ -56,10 +56,13 @@ total = total.merge(dem[['City', 'Land Area', 'Population Density', 'Total Famil
 # Cheyenne is duplicated somehow
 total.drop_duplicates(inplace=True)
 
+print('\naverages:\n')
 with open('averages.csv', 'w') as f:
     for c, s in zip(total.columns[1:], total.mean()):
         f.write(c + ',' + str(s) + '\n')
         print(c, s)
+
+print('\n')
 
 descr = total.describe()
 iqrs = []
