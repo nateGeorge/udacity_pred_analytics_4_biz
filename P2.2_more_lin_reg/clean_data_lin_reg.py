@@ -99,6 +99,7 @@ temp = temp.rename(columns=rename)
 sns.pairplot(temp.drop('City', axis=1))
 plt.show()
 
+print(total.corr()) # pearson correlation
 
 def full_fit(total):
     # the colinearity of population measures means we only need one.  They all have
@@ -111,12 +112,12 @@ def full_fit(total):
     print(res.summary())
 
 # execute the main fit
-X = total[['2010 Census', 'Households with Under 18']]
+X = total[['Population Density']]
 X = sm.add_constant(X)  # Adds a constant term to the predictor
 model = OLS(total['Total Pawdacity Sales'], X)
 res = model.fit()
 preds = res.predict(X)
-print(res.summary())
+print(res.summary2())
 
 # predict sales in new cities
 # get candidate cities that dont have pawdacity
@@ -135,14 +136,14 @@ new_df = new_df[new_df['2014 Estimate'] > 4000] # whittled down to 6 cities
 
 
 
-new_X = new_df[['2010 Census', 'Households with Under 18']]
+new_X = new_df[['Population Density']]
 new_X = sm.add_constant(new_X)
 new_preds = res.predict(new_X)
 new_df['predicted sales'] = new_preds
 new_df.drop('County_x', inplace=True, axis=1)
 new_df.drop('County_y', inplace=True, axis=1)
 new_df.drop('2000 Census', inplace=True, axis=1)
-new_df.sort_values(by='predicted sales', ascending=False)
+print(new_df.sort_values(by='predicted sales', ascending=False))
 
 def print_averages(total):
     '''
