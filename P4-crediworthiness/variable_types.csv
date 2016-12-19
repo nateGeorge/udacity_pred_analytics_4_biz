@@ -1,0 +1,21 @@
+Variable,Data Type
+Credit-Application-Result,String
+Account-Balance,String
+Duration-of-Credit-Month,Double
+Payment-Status-of-Previous-Credit,String
+Purpose,String
+Credit-Amount,Double
+Value-Savings-Stocks,String
+Length-of-current-employment,String
+Instalment-per-cent,Double
+Guarantors,String
+Duration-in-Current-address,Double
+Most-valuable-available-asset,Double
+Age-years,Double
+Concurrent-Credits,String
+Type-of-apartment,Double
+No-of-Credits-at-this-Bank,String
+Occupation,Double
+No-of-dependents,Double
+Telephone,Double
+Foreign-Worker,Double
